@@ -28,3 +28,4 @@ Open http://127.0.0.1:8000/docs to see the API documentation.
 | GET | / | Health check |
 | GET | /complaints | List of complaints |
 | GET | /departments | List of departments |
+| GET | /users | List of all users |

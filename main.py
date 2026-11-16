@@ -13,3 +13,7 @@ def get_complaints():
 @app.get("/departments")
 def get_departments():
   return {"message" : "List of all departments"}
+
+@app.get("/users")
+def get_users():
+  return {"message" : "List of all users"}

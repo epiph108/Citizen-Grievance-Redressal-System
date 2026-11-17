@@ -1,19 +1,19 @@
 from fastapi import FastAPI
+from routers import complaints, departments
+from config import settings
 
 app = FastAPI()
 
+app.include_router(complaints.router)
+app.include_router(departments.router)
+
 @app.get("/")
-def health():
-  return {"status" : "Okay"}
+def demo():
+    return {"message": "Citizen Grievance Redressal System is running"}
 
-@app.get("/complaints")
-def get_complaints():
-  return {"message" : "List of all complaints"}
-
-@app.get("/departments")
-def get_departments():
-  return {"message" : "List of all departments"}
-
-@app.get("/users")
-def get_users():
-  return {"message" : "List of all users"}
+@app.get("/config")
+def config_info():
+    return {
+        "app_name": settings.app_name,
+        "token_expiry": settings.access_token_expire_minutes
+    }
